@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Posts";
+}
+@model  ICollection<BlogEngineSergioDemarco.Areas.Identity.Data.ApplicationPost>
+
+<div class="text-center">
+    <h1 class="display-4">Posts</h1>
+    @if ( @Model != null && @Model.Any())
+    {
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var post in Model)
+            {
+            <tr>
+                        <th scope="row">@post.Id</th>
+                        <td>@post.Name</td>
+                <td>
+                            <a asp-controller="Post" asp-action="Edit" asp-route-id="@post.Id">Edit</a>
+                </td>
+            </tr>
+            }
+            </tbody>
+        </table>
+    }
+</div>
+
+<div class="text-center">
+
+</div>
